@@ -1,0 +1,20 @@
+{% extends "base.jinja2" %}
+{% block content %}
+    <div class="page-header">
+        <h1>Accounts
+            <small>showing already existing accounts</small>
+        </h1>
+    </div>
+    <div class="list-group">
+        {% for account in accounts %}
+            <a href="/accounts/{{ account._id }}"
+                <h4 class="list-group-item-heading">
+                    Alert for {{ account.name }}
+                </h4>
+                <p class="list-group-item-text">Last budget found <strong>£{{ account.budget }}</strong><br/>>
+            </a>
+        {% endfor %}
+    </div>
+    <a class="btn btn-success" href="{{ url_for('accounts.create_account') }}"><span
+            class="glyphicon glyphicon-plus"></span> Create new</a>
+{% endblock %}

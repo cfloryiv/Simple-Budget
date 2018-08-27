@@ -1,0 +1,19 @@
+{% extends "base.jinja2" %}
+{% block content %}
+    <div class="page-header">
+        <h1>Edit Account</h1>
+    </div>
+    <div class="form">
+        <form method="post">
+            <div class="form-group">
+                <label for="name">Account name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ account.name }}">
+            </div>
+            <div class="form-group">
+                <label for="budget">Account Budget</label>
+                <input type="text" class="form-control" id="budget" name="budget" placeholder="500.00" value="{{ account.budget }}">
+            </div>
+            <button type="submit" class="btn btn-warning">Update</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.jinja2" %}
+{% block content %}
+    <div class="page-header">
+        <h1>Account
+            <small>{{ tran.name }}</small>
+        </h1>
+    </div>
+    <p>Period: <strong>{{ tran.period }}</strong></p>
+    <p>Date: <strong>{{ tran.trans_date }}</strong></p>
+    <p>Amount: <strong>{{ tran.amount }}</strong></p>
+    {% if session['email'] in config.ADMINS %}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a class="btn btn-warning" href="{{ url_for('trans.edit_trans', trans_id=tran._id) }}" role="button">Edit
+                    Account</a>
+                <a class="btn btn-danger" href="{{ url_for('trans.delete_trans', trans_id=tran._id) }}" role="button">Permanently
+                    Delete Account</a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
