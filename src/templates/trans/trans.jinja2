@@ -11,10 +11,8 @@
     {% if session['email'] in config.ADMINS %}
         <div class="panel panel-default">
             <div class="panel-body">
-                <a class="btn btn-warning" href="{{ url_for('trans.edit_trans', trans_id=tran._id) }}" role="button">Edit
-                    Account</a>
                 <a class="btn btn-danger" href="{{ url_for('trans.delete_trans', trans_id=tran._id) }}" role="button">Permanently
-                    Delete Account</a>
+                    Delete Transaction</a>
             </div>
         </div>
     {% endif %}

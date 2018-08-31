@@ -9,9 +9,9 @@
     {% if session['email'] in config.ADMINS %}
         <div class="panel panel-default">
             <div class="panel-body">
-				<a class="btn btn-info" href="{{ url_for('trans.index') }}" role="button">List
+				<a class="btn btn-info" href="{{ url_for('trans.list_trans', name=account.name) }}" role="button">List
                     Transactions</a>
-                <a class="btn btn-primary" href="{{ url_for('trans.create_trans') }}" role="button">New
+                <a class="btn btn-primary" href="{{ url_for('trans.create_trans', name=account.name) }}" role="button">New
                     Transaction</a>
                 <a class="btn btn-warning" href="{{ url_for('accounts.edit_account', account_id=account._id) }}" role="button">Edit
                     Account</a>

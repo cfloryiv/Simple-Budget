@@ -38,3 +38,7 @@ class Account(object):
     @classmethod
     def all(cls):
         return [cls(**elem) for elem in Database.find('accounts', {})]
+
+    @classmethod
+    def find_by_name(cls, name):
+        return cls(**Database.find_one("accounts", {"name": name}))

@@ -2,6 +2,7 @@ import uuid
 import datetime
 import requests
 from common.database import Database
+from models.control.control import Control
 
 class Trans(object):
     def __init__(self, user_email, name, period, amount, trans_date=None, _id=None):
@@ -42,3 +43,11 @@ class Trans(object):
     @classmethod
     def all(cls):
         return [cls(**elem) for elem in Database.find('trans', {})]
+
+    @classmethod
+    def find_by_account_period(cls, name, period):
+        return [cls(**elem) for elem in Database.find("trans", {"name": name, "period": period})]  
+
+    @classmethod
+    def find_by_account(cls, name):
+        return [cls(**elem) for elem in Database.find("trans", {"name": name})]  
