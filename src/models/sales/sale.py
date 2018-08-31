@@ -2,6 +2,7 @@ import uuid
 import datetime
 import requests
 from common.database import Database
+from models.control.control import Control
 
 class Sale(object):
     def __init__(self, name, period, budget, sales, _id=None):
@@ -47,5 +48,7 @@ class Sale(object):
         return [cls(**elem) for elem in Database.find('sales', {})]
 
     @classmethod
-    def find_by_period(cls, period):
+    def find_by_period(cls):
+        control=Control.find_by_id('misc')
+        period=control.period[0][0]
         return [cls(**elem) for elem in Database.find('sales', {"period": period})]

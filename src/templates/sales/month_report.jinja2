@@ -1,0 +1,25 @@
+{% extends "base.jinja2" %}
+{% block content %}
+    <div class="page-header">
+        <h1>Month Budget Report
+            <small>showing already existing transactions</small>
+        </h1>
+    </div>
+    <table class="table table-striped">
+		<tr>
+			<th>Account</th>
+			<th>Period</th>
+			<th>Budget</th>
+			<th>Amount</th>
+		</tr>
+        {% for sale in sales %}
+			<tr>
+                <td>{{ sale.name }}</td>
+                <td>{{ sale.period }}</td>
+                <td>{{ sale.budget }}</td>
+                <td>{{ sale.sales }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

@@ -21,6 +21,8 @@ def home():
 from models.users.views import user_blueprint
 from models.accounts.views import account_blueprint
 from models.trans.views import trans_blueprint
+from models.sales.views import sales_blueprint
 app.register_blueprint(user_blueprint, url_prefix="/users")
 app.register_blueprint(account_blueprint, url_prefix="/accounts")
 app.register_blueprint(trans_blueprint, url_prefix="/trans")
+app.register_blueprint(sales_blueprint, url_prefix='/sales')

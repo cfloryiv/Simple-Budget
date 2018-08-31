@@ -31,7 +31,7 @@ def create_trans(name):
 
         sale.save_to_mongo()
         
-        return redirect(url_for('.index'))
+        return redirect(url_for('.list_trans', name=name))
 
     control=Control.find_by_id('misc')
     period=control.period
