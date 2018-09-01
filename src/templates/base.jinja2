@@ -27,7 +27,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ url_for('users.user_accounts') }}" title="Accounts">Accounts</a></li>
                 <li><a href="{{ url_for('sales.month_report') }}" title="Month Report"><span class="glyphicon glyphicon-print"></span> Month Report</a></li>
-                <li><a href="{{ url_for('sales.year_report') }}" title="Year Report"><span class="glyphicon glyphicon-print"></span> Year Report</a></li>
+                <li><a href="{{ url_for('sales.periods_report') }}" title="Year Report"><span class="glyphicon glyphicon-print"></span> Year Report</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if session['email'] %}

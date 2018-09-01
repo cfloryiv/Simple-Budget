@@ -15,3 +15,8 @@ def month_report():
 def year_report():
     sales=Sale.all()
     return render_template('sales/year_report.jinja2', sales=sales)
+
+@sales_blueprint.route('/periods_report')
+def periods_report():
+    sales=Sale.find_by_periods()
+    return render_template('sales/periods_report.jinja2', sales=sales)

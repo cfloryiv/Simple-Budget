@@ -52,3 +52,18 @@ class Sale(object):
         control=Control.find_by_id('misc')
         period=control.period[0][0]
         return [cls(**elem) for elem in Database.find('sales', {"period": period})]
+
+    @classmethod
+    def find_by_periods(cls):
+        sales=Sale.all()
+        amounts={}
+        for sale in sales:
+            if sale.period in amounts:
+                amounts[sale.period][0]+=sale.budget
+                amounts[sale.period][1]+=sale.sales
+            else:
+                amounts[sale.period]={}
+                amounts[sale.period][0]=sale.budget
+                amounts[sale.period][1]=sale.sales
+        return amounts
+            
